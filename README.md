@@ -115,7 +115,7 @@ docker
 <img width="1892" height="498" alt="image" src="https://github.com/user-attachments/assets/9d473b5b-1945-4b53-a649-54aab597e9ea" />
 <img width="674" height="610" alt="image" src="https://github.com/user-attachments/assets/39c52b8e-659c-4405-b988-9abae67533b9" />
 <img width="666" height="585" alt="image" src="https://github.com/user-attachments/assets/6273c9a3-7eb2-413b-b569-72c258cca273" />
-<img width="690" height="778" alt="image" src="https://github.com/user-attachments/assets/9396a0d1-e592-437c-9d8b-63f75afdde07" />
+
 
 
 ### Click on Dashboard and create new project and select project type as *pipeline* project
@@ -124,10 +124,6 @@ docker
 
 ### setup webhook
 <img width="1176" height="871" alt="image" src="https://github.com/user-attachments/assets/0efbdf6d-0971-4543-96aa-d055153c3185" />
-<img width="1895" height="802" alt="image" src="https://github.com/user-attachments/assets/db4c0ab3-f9ed-49dd-8d5a-f606dd6526ea" />
-<img width="1918" height="669" alt="image" src="https://github.com/user-attachments/assets/fc755a17-9b42-4d0a-b5fa-9a870bf6436b" />
-<img width="1345" height="652" alt="image" src="https://github.com/user-attachments/assets/a276934b-65cf-4ec8-b9fb-4c9fe3a60be0" />
-
 
 
 ```groovy
