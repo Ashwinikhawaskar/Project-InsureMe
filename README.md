@@ -145,7 +145,7 @@ pipeline {
     stages {
         stage('code-pull'){
             steps{
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/abhipraydhoble/Project-InsureMe.git']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mukundDeo9325/Project-InsureMe1.git']])
             }
         }
         stage('code-build'){
@@ -184,7 +184,7 @@ pipeline {
         }
        stage('docker-image'){
             steps{
-                sh 'docker build -t abhipraydh96/insureb36 .'
+                sh 'docker build -t mukunddeo9325/insuremeB .'
                 
             }
         }
@@ -193,14 +193,14 @@ pipeline {
             steps {
        	       withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
             	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                sh 'docker push abhipraydh96/insureb36'
+                sh 'docker push mukunddeo9325/insuremeB'
                }
             }
         } 
         
         stage('code-deploy'){
             steps{
-                sh 'docker run -itd --name insure-me -p 8089:8081 abhipraydh96/insureb36'
+                sh 'docker run -itd --name insure-me -p 8089:8081 mukunddeo9325/insuremeB'
             }
         }
     }
@@ -218,7 +218,7 @@ pipeline {
 
    environment {
      S3_BUCKET = "project-insure-me-build-artifacts-store"
-     REGION = "ap-southeast-1"
+     REGION = "ap-south-1"
      warFile = "target/Insurance-0.0.1-SNAPSHOT.jar"
    }
 
@@ -226,7 +226,7 @@ pipeline {
 stages{
     stage('code-pull'){
         steps{
-            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/abhipraydhoble/Project-InsureMe.git']])
+            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mukundDeo9325/Project-InsureMe1.git']])
         }
     }
 
