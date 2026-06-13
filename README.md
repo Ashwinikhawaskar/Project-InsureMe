@@ -130,8 +130,8 @@ pipeline {
     }
     environment {
      SCANNER_HOME = tool 'sonar-scanner'
-     S3_BUCKET = "project-insure-me-build-artifacts-store-oncdecb36"
-     REGION = "ap-southeast-1"
+     S3_BUCKET = "project-insure-me"
+     REGION = "ap-south-1"
      warFile = "target/Insurance-0.0.1-SNAPSHOT.jar"
      }
     stages {
@@ -163,7 +163,7 @@ pipeline {
         stage("code-test-quality gate") {
             steps {
                 script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-cred'
                 }
             }
         }
@@ -176,7 +176,7 @@ pipeline {
         }
        stage('docker-image'){
             steps{
-                sh 'docker build -t mukunddeo9325/insuremeB .'
+                sh 'docker build -t ashwini0801/insureme .'
                 
             }
         }
@@ -185,14 +185,14 @@ pipeline {
             steps {
        	       withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
             	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                sh 'docker push mukunddeo9325/insuremeB'
+                sh 'docker push ashwini0801/insureme'
                }
             }
         } 
         
         stage('code-deploy'){
             steps{
-                sh 'docker run -itd --name insure-me -p 8089:8081 mukunddeo9325/insuremeB'
+                sh 'docker run -itd --name insure-me -p 8089:8081 ashwini0801/insureme'
             }
         }
     }
@@ -209,7 +209,7 @@ pipeline {
     }
 
    environment {
-     S3_BUCKET = "project-insure-me-build-artifacts-store"
+     S3_BUCKET = "project-insure-me"
      REGION = "ap-south-1"
      warFile = "target/Insurance-0.0.1-SNAPSHOT.jar"
    }
