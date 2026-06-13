@@ -108,12 +108,16 @@ docker
 ### configure tools in Manage Jenkins-> Tools
 ![project](./images/p1.png)
 ![project](./images/p2.png)
-
+![project](./images/p8.png)
 ### add credentials 
 
-![project](./images/p3.png)
 ![project](./images/p4.png)
 ![project](./images/p5.png)
+![project](./images/p10.png)
+
+### system envirolment
+![project](./images/p9.png)
+
 ### Click on Dashboard and create new project and select project type as *pipeline* project
 
 
